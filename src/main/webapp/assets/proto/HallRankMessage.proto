@@ -1,0 +1,4 @@
+option java_package = "com.jzy.game.message.hall";
+import "Mid.proto";
+
+
