@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.jbm.game.engine.util.StringUtils;
 import com.jbm.game.manager.constant.SessionKey;
 import com.jbm.game.manager.service.UserService;
@@ -20,10 +19,10 @@ import com.jbm.game.manager.service.UserService;
  * @author Administrator
  *
  */
-@Controller
 @RequestMapping("/user")
+@Controller
 public class UserController {
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	@Autowired
 	private UserService userService;
 
@@ -42,7 +41,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login")
 	public ModelAndView login(HttpSession session, HttpServletResponse response, String userName, String password) {
-
+		logger.info("开始登陆"+userName+"---"+password+"  系统:"+this.userName+"----"+this.password);
 		if (StringUtils.stringIsNullEmpty(userName) || StringUtils.stringIsNullEmpty(password)) {
 			return new ModelAndView("redirect:/login");
 		}
